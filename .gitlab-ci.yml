@@ -6,15 +6,19 @@ services:
 
 before_script:
   - set -eux
-  - echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
-  - echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+  - echo http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+    >> /etc/apk/repositories
+  - echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" \
+    >> /etc/apk/repositories
   - apk update
   - apk add git sbt
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   - git clone https://github.com/codeoverflow-org/chatoverflow.git
   - cd chatoverflow
-  - git submodule add https://github.com/codeoverflow-org/chatoverflow-api.git api
-  - git submodule add https://github.com/codeoverflow-org/chatoverflow-plugins.git plugins-public
+  - git submodule add -f \
+    https://github.com/codeoverflow-org/chatoverflow-api.git api
+  - git submodule add -f \
+    https://github.com/codeoverflow-org/chatoverflow-plugins.git plugins-public
   - git submodule init
   - git submodule update
   - sbt clean
