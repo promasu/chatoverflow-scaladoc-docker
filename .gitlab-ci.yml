@@ -34,6 +34,7 @@ before_script:
   - sbt reload
   - sbt version
   - sbt doc
+  - ls -la
   - cd ..
 
 build:
