@@ -8,11 +8,11 @@ before_script:
   - printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
   - apt-get update
   - apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y
-  - curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-  - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+    #  - curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+    #  - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
   - echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
   - apt-get update
-  - apt-get install git docker-ce scala sbt -y --force-yes
+  - apt-get install git scala sbt -y --force-yes
   - systemctl start docker
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   - git clone https://github.com/codeoverflow-org/chatoverflow.git
