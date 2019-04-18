@@ -2,6 +2,9 @@
 image: williamyeh/java8:latest
 
 before_script:
+  - apt-get update
+  - apt-get upgrade
+  - apt-get install apt-transport-https ca-certificates
   - echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
   - apt-get update
   - apt-get install git docker scala sbt
