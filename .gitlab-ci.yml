@@ -2,6 +2,7 @@
 image: williamyeh/java8:latest
 
 before_script:
+  - printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
   - apt-get update
   - apt-get upgrade
   - apt-get install apt-transport-https ca-certificates
