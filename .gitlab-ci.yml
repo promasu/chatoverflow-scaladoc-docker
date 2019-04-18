@@ -6,7 +6,7 @@ services:
 
 before_script:
   - set -eux
-  - echo http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+  - echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" \
     > /etc/apk/repositories
   - echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" \
     >> /etc/apk/repositories
