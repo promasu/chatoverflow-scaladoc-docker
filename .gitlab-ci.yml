@@ -7,7 +7,7 @@ before_script:
   - apt-get install apt-transport-https ca-certificates -y
   - echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
   - apt-get update
-  - apt-get install git docker scala sbt -y
+  - apt-get install git docker scala sbt -y --force-yes
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   - git clone https://github.com/codeoverflow-org/chatoverflow.git
   - cd chatoverflow
